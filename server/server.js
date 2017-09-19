@@ -32,14 +32,29 @@ io.on('connection', (socket) => {
 	// 	console.log('create Email', nani);
 	// });
 
-	socket.on('createMessage', (messg) => {
-		console.log('create Message', messg)
-		io.emit('newMessage', {
-			from: messg.from,
-			text: messg.text,
-			createdAt: new Date().getTime()
-		});
+	socket.emit('newMessage', {
+		from: 'Admin',
+		text: 'welcome to chat app'
 	});
+
+	socket.broadcast.emit('newMessage', {
+		from: 'admin',
+		text: 'new user join'
+	})
+
+	// socket.on('createMessage', (messg) => {
+	// 	console.log('create Message', messg)
+	// 	// io.emit('newMessage', {
+	// 	// 	from: messg.from,
+	// 	// 	text: messg.text,
+	// 	// 	createdAt: new Date().getTime()
+	// 	// });
+	// 	// socket.broadcast.emit('newMessage', {
+	// 	// 	from: messg.from,
+	// 	// 	text: messg.text,
+	// 	// 	createdAt: new Date().getTime()
+	// 	// });
+	// });
 
 	socket.on('disconnect', () => {
 		console.log('user was disconnect');  

@@ -22,6 +22,6 @@ socket.on('disconnect', function () {
 // 	console.log('new Email', email);
 // });
 
-socket.on('newMessage', function (messg){
-	console.log('new Message', messg);
+socket.on('newMessage', function (message){
+	console.log('new Message', message);
 });

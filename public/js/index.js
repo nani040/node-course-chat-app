@@ -8,10 +8,10 @@ socket.on('connect', function () {
 	// 	text: 'hello nani'
 	// });
 
-	socket.emit('createMessage',{
-		from: 'nani040',
-		text: 'its working fine'
-	});
+	// socket.emit('createMessage',{
+	// 	from: 'nani040',
+	// 	text: 'its working fine'
+	// });
 });
 
 socket.on('disconnect', function () {

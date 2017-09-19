@@ -23,10 +23,10 @@ io.on('connection', (socket) => {
 	// 	createdAt: 123
 	// });
 
-	socket.emit('newMessage', {
-		from: 'teddy',
-		text: 'im here only'
-	});
+	// socket.emit('newMessage', {
+	// 	from: 'teddy',
+	// 	text: 'im here only'
+	// });
 
 	// socket.on('createEmail', (email) => {
 	// 	console.log('create Email', nani);
@@ -34,7 +34,12 @@ io.on('connection', (socket) => {
 
 	socket.on('createMessage', (messg) => {
 		console.log('create Message', messg)
-	})
+		io.emit('newMessage', {
+			from: messg.from,
+			text: messg.text,
+			createdAt: new Date().getTime()
+		});
+	});
 
 	socket.on('disconnect', () => {
 		console.log('user was disconnect');  

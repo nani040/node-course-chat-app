@@ -32,6 +32,18 @@ io.on('connection', (socket) => {
   socket.on('createLocationMessage', (coords) => {
   	io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude, coords.longitude));
   });
+
+  // ---
+
+	socket.on('disconnect', () => {
+		console.log('user was disconnect');  
+	});
+});
+
+
+server.listen(port, ()=>{
+	console.log(`server starts running on port ${port}`);
+});
 	// socket.emit('newEmail', {
 	// 	from: 'nani040@gmail.com',
 	// 	text: 'hi hello ted!',
@@ -71,12 +83,45 @@ io.on('connection', (socket) => {
 	// 	// });
 	// });
 
-	socket.on('disconnect', () => {
-		console.log('user was disconnect');  
-	});
-});
 
 
-server.listen(port, ()=>{
-	console.log(`server starts running on port ${port}`);
-});
+
+
+	// socket.emit('newEmail', {
+	// 	from: 'nani040@gmail.com',
+	// 	text: 'hi hello ted!',
+	// 	createdAt: 123
+	// });
+
+	// socket.emit('newMessage', {
+	// 	from: 'teddy',
+	// 	text: 'im here only'
+	// });
+
+	// socket.on('createEmail', (email) => {
+	// 	console.log('create Email', nani);
+	// });
+
+	// socket.emit('newMessage', {
+	// 	from: 'Admin',
+	// 	text: 'welcome to chat app'
+	// });
+
+	// socket.broadcast.emit('newMessage', {
+	// 	from: 'admin',
+	// 	text: 'new user join'
+	// })
+
+	// socket.on('createMessage', (messg) => {
+	// 	console.log('create Message', messg)
+	// 	// io.emit('newMessage', {
+	// 	// 	from: messg.from,
+	// 	// 	text: messg.text,
+	// 	// 	createdAt: new Date().getTime()
+	// 	// });
+	// 	// socket.broadcast.emit('newMessage', {
+	// 	// 	from: messg.from,
+	// 	// 	text: messg.text,
+	// 	// 	createdAt: new Date().getTime()
+	// 	// });
+	// });

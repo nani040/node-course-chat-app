@@ -15,7 +15,7 @@ var users = new Users();
 
 app.use(express.static(publicPath));
 
-// console.log(publicPath);
+ console.log(publicPath);
 
 io.on('connection', (socket) => {
   console.log('New user connected');
